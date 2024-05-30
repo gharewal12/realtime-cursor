@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1716902974425,
+      "tag": "0000_many_plazm",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1717079686448,
+      "tag": "0001_mysterious_crystal",
+      "breakpoints": true
+    }
+  ]
+}
