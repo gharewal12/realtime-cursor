@@ -66,7 +66,7 @@ const LoginPage = () => {
             className="font-semibold
           dark:text-white text-4xl first-letter:ml-2"
           >
-            LOGIN
+            Login
           </span>
         </Link>
         <FormDescription
