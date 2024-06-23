@@ -39,7 +39,7 @@ const LoginPage = () => {
     const { error } = await actionLogInUser(formData);
     if (error) {
       form.reset();
-      setSubmitError(error.message);
+      setSubmitError('Invalid credentials');
       return;
     }
     router.replace('/dashboard');
