@@ -1,7 +1,9 @@
 'use server';
 import db from './db';
-import { workspaces } from '../../../migrations/schema';
-import { Subscription, workspace } from './supabase.types';
+import { files, workspaces } from '../../../migrations/schema';
+import { Subscription, workspace, File } from './supabase.types';
+import { validate } from 'uuid';
+import { eq } from 'drizzle-orm';
 
 export const createWorkspace = async (workspace: workspace) => {
   try {
@@ -24,5 +26,21 @@ export const getUserSubscriptionStatus = async (userId: string) => {
   } catch (error) {
     console.log(error);
     return { data: null, error: `Error ${error}` };
+  }
+};
+
+export const getFiles = async (folderId: string) => {
+  const isValid = validate(folderId);
+  if (!isValid) return { data: null, error: 'Error' };
+  try {
+    const results = (await db
+      .select()
+      .from(files)
+      .orderBy(files.createdAt)
+      .where(eq(files.folderId, folderId))) as File[] | [];
+    return { data: results, error: null };
+  } catch (error) {
+    console.log(error);
+    return { data: null, error: 'Error' };
   }
 };

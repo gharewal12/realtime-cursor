@@ -40,19 +40,7 @@ const HomePage = () => {
           to-brand-primaryBlue
           sm:w-[300px]
         "
-        >
-          <Button
-            variant="secondary"
-            className=" w-full
-            rounded-[10px]
-            p-6
-            text-2xl
-            bg-background
-          "
-          >
-            Get Cypress Free
-          </Button>
-        </div>
+        ></div>
         <div
           className="md:mt-[-90px]
           sm:w-full
