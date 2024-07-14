@@ -15,6 +15,13 @@
       "when": 1717079686448,
       "tag": "0001_mysterious_crystal",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1720247682090,
+      "tag": "0002_spotty_zaladane",
+      "breakpoints": true
     }
   ]
 }
