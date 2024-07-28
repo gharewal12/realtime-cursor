@@ -5,6 +5,7 @@ import { Subscription, workspace, File, Folder, User } from './supabase.types';
 import { validate } from 'uuid';
 import { eq, and, notExists, ilike } from 'drizzle-orm';
 import { collaborators } from './schema';
+import { errorMonitor } from 'events';
 
 export const createWorkspace = async (workspace: workspace) => {
   try {
@@ -261,5 +262,27 @@ export const updateFile = async (file: Partial<File>, fileId: string) => {
   } catch (error) {
     console.log(error);
     return { data: null, error: 'Error' };
+  }
+};
+
+export const getWorkspaceDetails = async (workspaceId: string) => {
+  const isValid = validate(workspaceId);
+  if (!isValid)
+    return {
+      data: [],
+      error: 'Error',
+    };
+
+  try {
+    const response = (await db
+      .select()
+      .from(workspaces)
+      .where(eq(workspaces.id, workspaceId))
+      .limit(1)) as workspace[];
+
+    return { data: response, error: null };
+  } catch (error) {
+    console.log(error);
+    return { data: [], error: 'Error' };
   }
 };
