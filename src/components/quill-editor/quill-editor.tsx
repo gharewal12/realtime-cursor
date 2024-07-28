@@ -4,7 +4,13 @@ import { useAppState } from '@/lib/providers/state-providers';
 import { File, Folder, workspace } from '@/lib/supabase/supabase.types';
 import 'quill/dist/quill.snow.css';
 import { Button } from '../ui/button';
-import { updateFile, updateFolder } from '@/lib/supabase/queries';
+import {
+  deleteFile,
+  deleteFolder,
+  updateFile,
+  updateFolder,
+} from '@/lib/supabase/queries';
+import { useRouter } from 'next/navigation';
 
 interface QuillEditorProps {
   dirDetails: File | Folder | workspace;
@@ -39,6 +45,8 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
 }) => {
   const { state, workspaceId, folderId, dispatch } = useAppState();
   const [quill, setQuill] = useState<any>(null);
+
+  const router = useRouter();
 
   const details = useMemo(() => {
     let selectedDir;
@@ -116,6 +124,27 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
     }
   };
 
+  const deleteFileHandler = async () => {
+    if (dirType === 'file') {
+      if (!folderId || !workspaceId) return;
+      dispatch({
+        type: 'DELETE_FILE',
+        payload: { fileId, folderId, workspaceId },
+      });
+      await deleteFile(fileId);
+      router.replace(`/dashboard/${workspaceId}`);
+    }
+    if (dirType === 'folder') {
+      if (!workspaceId) return;
+      dispatch({
+        type: 'DELETE_FOLDER',
+        payload: { folderId: fileId, workspaceId },
+      });
+      await deleteFolder(fileId);
+      router.replace(`/dashboard/${workspaceId}`);
+    }
+  };
+
   return (
     <>
       <div className="relative">
@@ -164,7 +193,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
                 hover:bg-white
                 hover:text-[#EB5757]
                 "
-                onClick={deleteFile}
+                onClick={deleteFileHandler}
               >
                 Delete
               </Button>

@@ -57,7 +57,11 @@ const FoldersDropdownList: React.FC<FoldersDropdownListProps> = ({
   //add folder
   const addFolderHandler = async () => {
     if (folders.length >= 3 && !subscription) {
-    //   setOpen(true);
+      toast({
+        title: 'Warning',
+        variant: 'destructive',
+        description: 'Max 3 folders are allowed',
+      })
       return;
     }
     const newFolder: Folder = {
