@@ -5,7 +5,6 @@ import { Subscription, workspace, File, Folder, User } from './supabase.types';
 import { validate } from 'uuid';
 import { eq, and, notExists, ilike } from 'drizzle-orm';
 import { collaborators } from './schema';
-import { errorMonitor } from 'events';
 
 export const createWorkspace = async (workspace: workspace) => {
   try {
@@ -335,5 +334,5 @@ export const deleteFile = async (fileId: string) => {
 
 export const deleteFolder = async (folderId: string) => {
   if (!folderId) return;
-  await db.delete(files).where(eq(files.id, folderId));
+  await db.delete(files).where(eq(files.folderId, folderId));
 };

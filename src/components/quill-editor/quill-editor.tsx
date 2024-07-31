@@ -198,8 +198,19 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
                 Delete
               </Button>
             </div>
+            <span className="text-sm text-white">{details.inTrash}</span>
           </article>
         )}
+        <div className="flex 
+          flex-col-reverse
+          sm:flex-row 
+          sm:justify-between 
+          justify-center 
+          sm:items-center 
+          sm:p-2 
+          p-8">
+
+        </div>
       </div>
       <div
         className="flex
