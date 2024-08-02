@@ -61,18 +61,18 @@ const FoldersDropdownList: React.FC<FoldersDropdownListProps> = ({
         title: 'Warning',
         variant: 'destructive',
         description: 'Max 3 folders are allowed',
-      })
+      });
       return;
     }
     const newFolder: Folder = {
-        data: null,
-        id: v4(),
-        createdAt: new Date().toISOString(),
-        title: 'Untitled',
-        iconId: '📄',
-        inTrash: null,
-        workspaceId,
-        bannerUrl: '',
+      data: null,
+      id: v4(),
+      createdAt: new Date().toISOString(),
+      title: 'Untitled',
+      iconId: '📄',
+      inTrash: null,
+      workspaceId,
+      bannerUrl: '',
     };
     dispatch({
       type: 'ADD_FOLDER',
@@ -131,7 +131,7 @@ const FoldersDropdownList: React.FC<FoldersDropdownListProps> = ({
       </div>
       <Accordion
         type="multiple"
-        defaultValue={[folderId || '']}
+        defaultValue={[folderId ?? '']}
         className="pb-20"
       >
         {folders

@@ -286,7 +286,7 @@ const SettingsForm = () => {
               <ScrollArea
                 className="
             h-[120px]
-            overflow-y-scroll
+            overflow-auto
             w-full
             rounded-md
             border
@@ -303,16 +303,15 @@ const SettingsForm = () => {
                     >
                       <div className="flex gap-4 items-center">
                         <Avatar>
-                          <AvatarImage src="/avatars/7.png" />
+                          <AvatarImage src={c.avatarUrl ?? "" }/>
                           <AvatarFallback>PJ</AvatarFallback>
                         </Avatar>
                         <div
                           className="text-sm 
-                          gap-2
+                          gap-
                           text-muted-foreground
                           overflow-hidden
                           overflow-ellipsis
-                          sm:w-[300px]
                           w-[140px]
                         "
                         >
