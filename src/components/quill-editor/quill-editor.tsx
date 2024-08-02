@@ -241,7 +241,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
     // TODO Cursor update
     const selectionChangeHandler = () => {};
 
-    const quillHandler = (delta: any, _, source: any) => {
+    const quillHandler = (delta: any, _: any, source: any) => {
       if (source !== 'user') return;
 
       if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
@@ -300,6 +300,22 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
       if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
     };
   }, [quill, socket, fileId, user, details]);
+
+  // To listen changes
+  useEffect(() => {
+    if (quill === null || socket === null) return;
+    const socketHandler = (deltas: any, id: string) => {
+      if (id === fileId) {
+        quill.updateContents(deltas);
+      }
+    };
+
+    socket.on('receive-changes', socketHandler);
+
+    return () => {
+      socket.off('receive-changes', socketHandler);
+    };
+  }, [quill, socket, fileId]);
 
   return (
     <>
