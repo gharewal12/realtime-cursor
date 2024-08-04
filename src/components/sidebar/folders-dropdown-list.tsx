@@ -27,7 +27,7 @@ const FoldersDropdownList: React.FC<FoldersDropdownListProps> = ({
   const [folders, setFolders] = useState(workspaceFolders);
   const { subscription } = useSupabaseUser();
 
-  //effec set nitial satte server app state
+  //effect to set initial state server app state
   useEffect(() => {
     if (workspaceFolders.length > 0) {
       dispatch({
@@ -44,8 +44,7 @@ const FoldersDropdownList: React.FC<FoldersDropdownListProps> = ({
         },
       });
     }
-  }, [workspaceFolders, workspaceId]);
-  //state
+  }, [workspaceFolders, workspaceId]);  
 
   useEffect(() => {
     setFolders(
