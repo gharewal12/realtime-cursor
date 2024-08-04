@@ -113,7 +113,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
 
   const supabase = createClient();
 
-  const wrapperRef = useCallback(async (wrapper: any) => {
+  const wrapperRef: any = useCallback(async (wrapper: any) => {
     if (typeof window !== undefined) {
       if (wrapper == null) return;
       wrapper.innerHTML = '';

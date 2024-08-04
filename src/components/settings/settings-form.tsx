@@ -53,7 +53,6 @@ import ProfileIcon from '../icons/profileIcon';
 import LogoutButton from '../global/logout-button';
 import Link from 'next/link';
 // import { useSubscriptionModal } from '@/lib/providers/subscription-modal-provider';
-import { postData } from '@/lib/utils';
 import { createClient } from '@/utils/supabase/client';
 
 const SettingsForm = () => {
@@ -72,21 +71,6 @@ const SettingsForm = () => {
   const [uploadingLogo, setUploadingLogo] = useState(false);
   const [loadingPortal, setLoadingPortal] = useState(false);
 
-  //WIP PAYMENT PORTAL
-
-  const redirectToCustomerPortal = async () => {
-    setLoadingPortal(true);
-    try {
-      const { url, error } = await postData({
-        url: '/api/create-portal-link',
-      });
-      window.location.assign(url);
-    } catch (error) {
-      console.log(error);
-      setLoadingPortal(false);
-    }
-    setLoadingPortal(false);
-  };
   //addcollborators
   const addCollaborator = async (profile: User) => {
     if (!workspaceId) return;

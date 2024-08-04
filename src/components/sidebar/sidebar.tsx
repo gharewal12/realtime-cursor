@@ -13,7 +13,6 @@ import NativeNavigation from './native-navigation';
 import { ScrollArea } from '../ui/scroll-area';
 import { twMerge } from 'tailwind-merge';
 import FoldersDropdownList from './folders-dropdown-list';
-import UserCard from './user-card';
 
 interface SidebarProps {
   params: { workspaceId: string };
