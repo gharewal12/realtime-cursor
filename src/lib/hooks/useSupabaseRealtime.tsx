@@ -149,7 +149,11 @@ const useSupabaseRealtime = () => {
                     payload: {
                       workspaceId,
                       folderId,
-                      folder,
+                      folder: {
+                        title: payload.new.title,
+                        iconId: payload.new.icon_id,
+                        inTrash: payload.new.in_trash,
+                      },
                     },
                   });
                   return true;

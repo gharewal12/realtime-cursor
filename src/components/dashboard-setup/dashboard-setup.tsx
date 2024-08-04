@@ -191,16 +191,6 @@ const DashboardSetup: React.FC<DashboardPageProps> = ({
               <small className="text-red-600">
                 {errors?.logo?.message?.toString()}
               </small>
-              {subscription?.status !== 'active' && (
-                <small
-                  className="
-                  text-muted-foreground
-                  block
-              "
-                >
-                  To customize your workspace, you need to be on a Pro Plan
-                </small>
-              )}
             </div>
             <div className="self-center">
               <Button disabled={isLoading} type="submit" className="w-full">
