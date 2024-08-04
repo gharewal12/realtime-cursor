@@ -464,10 +464,8 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
       </div>
       <div
         className="flex 
-        flex-col-reverse 
-        sm:flex-row 
-        sm:justify-end 
-        justify-center 
+        flex-row 
+        justify-end 
         sm:items-center 
         sm:p-2 
         p-8"
