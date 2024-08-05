@@ -337,10 +337,6 @@ const AppStateProvider: React.FC<AppStateProviderProps> = ({ children }) => {
     fetchFiles();
   }, [folderId, workspaceId]);
 
-  useEffect(() => {
-    console.log('App State Changed', state);
-  }, [state]);
-
   return (
     <AppStateContext.Provider
       value={{ state, dispatch, workspaceId, folderId, fileId }}
