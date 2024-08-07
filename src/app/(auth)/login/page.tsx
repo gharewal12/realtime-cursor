@@ -20,6 +20,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Loader from '@/components/global/Loader';
 import { actionLogInUser } from '@/lib/server-action/auth-actions';
+import GitHubSignIn from '@/components/global/github-sigin-button';
+import OrDivider from '@/components/global/orDivider';
 
 const LoginPage = () => {
   const router = useRouter();
@@ -113,6 +115,8 @@ const LoginPage = () => {
         >
           {!isLoading ? 'Login' : <Loader />}
         </Button>
+        <OrDivider />
+        <GitHubSignIn />
         <span className="self-center">
           Dont have an account?{' '}
           <Link href="/signup" className="text-primary">

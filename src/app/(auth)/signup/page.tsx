@@ -24,8 +24,8 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { MailCheck } from 'lucide-react';
 import { FormSchema } from '@/lib/types';
 import { actionSignUpUser } from '@/lib/server-action/auth-actions';
-import { createClient } from '@/utils/supabase/client';
-import GitHub from '@/components/icons/gitHubIcon';
+import GitHubSignIn from '@/components/global/github-sigin-button';
+import OrDivider from '@/components/global/orDivider';
 
 const SignUpFormSchema = z
   .object({
@@ -80,20 +80,6 @@ const Signup = () => {
       return;
     }
     setConfirmation(true);
-  };
-
-  const handleGitHubSignUp = async () => {
-    const supabase = createClient();
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'github',
-      options: {
-        redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}auth/callback`,
-      },
-    });
-
-    if (error) {
-      setSubmitError(error.message);
-    }
   };
 
   return (
@@ -178,28 +164,8 @@ const Signup = () => {
             <Button type="submit" className="w-full p-6" disabled={isLoading}>
               {!isLoading ? 'Create Account' : <Loader />}
             </Button>
-            <div className="flex justify-between items-center">
-              <hr className="w-full text-white h-1" />
-              <span className="flex justify-center m-0 p-0">or</span>
-              <hr className="w-full text-white h-1" />
-            </div>
-            <Button
-              type="button"
-              className="w-full p-6"
-              disabled={isLoading}
-              onClick={handleGitHubSignUp}
-            >
-              {!isLoading ? (
-                <div className="flex items-center">
-                  Sign In with GitHub
-                  <span className="pl-2 text-xl">
-                    <GitHub />
-                  </span>
-                </div>
-              ) : (
-                <Loader />
-              )}
-            </Button>
+            <OrDivider />
+            <GitHubSignIn />
           </>
         )}
 

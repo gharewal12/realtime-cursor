@@ -17,7 +17,7 @@ const LogoutButton: React.FC<LogoutButtonProps> = ({ children }) => {
   const supabase = createClient();
   const logout = async () => {
     await supabase.auth.signOut();
-    router.refresh();
+    router.replace('/login');
     dispatch({ type: 'SET_WORKSPACES', payload: { workspaces: [] } });
   };
   return (
