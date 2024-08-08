@@ -42,8 +42,6 @@ const DashboardPage = async () => {
     );
 
   redirect(`/dashboard/${workspace.id}`);
-
-  return <div>DashboardPage</div>;
 };
 
 export default DashboardPage;

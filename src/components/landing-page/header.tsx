@@ -4,16 +4,6 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import Logo from '../../../public/cypresslogo.svg';
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
 import { Button } from '../ui/button';
 
 const routes = [
@@ -108,38 +98,3 @@ const Header = () => {
 };
 
 export default Header;
-
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'>
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            'group block select-none space-y-1 font-medium leading-none',
-          )}
-          {...props}
-        >
-          <div className="text-white text-sm font-medium leading-none">
-            {title}
-          </div>
-          <p
-            className="group-hover:text-white/70
-            line-clamp-2
-            text-sm
-            leading-snug
-            text-white/40
-          "
-          >
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
-
-ListItem.displayName = 'ListItem';

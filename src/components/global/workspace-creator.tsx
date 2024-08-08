@@ -55,14 +55,14 @@ const WorkspaceCreator = () => {
         bannerUrl: '',
       };
       if (permissions === 'private') {
-        toast({ title: 'Success', description: 'Created the workspace' });
         await createWorkspace(newWorkspace);
+        toast({ title: 'Success', description: 'Created the workspace' });
         router.refresh();
       }
       if (permissions === 'shared') {
-        toast({ title: 'Success', description: 'Created the workspace' });
         await createWorkspace(newWorkspace);
         await addCollaborators(collaborators, uuid);
+        toast({ title: 'Success', description: 'Created the workspace' });
         router.refresh();
       }
     }
@@ -163,7 +163,7 @@ const WorkspaceCreator = () => {
             <ScrollArea
               className="
             h-[120px]
-            overflow-y-scroll
+            overflow-y-auto
             w-full
             rounded-md
             border
@@ -189,8 +189,8 @@ const WorkspaceCreator = () => {
                           text-muted-foreground
                           overflow-hidden
                           overflow-ellipsis
-                          sm:w-[300px]
-                          w-[140px]
+                          sm:w-auto
+                          w-[120px]
                         "
                       >
                         {c.email}
