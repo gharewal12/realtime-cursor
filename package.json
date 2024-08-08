@@ -44,6 +44,7 @@
     "quill-cursors": "^4.0.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-spinners": "^0.14.1",
     "socket.io": "^4.7.5",
     "socket.io-client": "^4.7.5",
     "tailwind-merge": "^2.3.0",
