@@ -1,3 +1,20 @@
+## This project is a Full Stack Real-Time Collaboration with Next.js 13 App Router: React, Tailwind, Socket.io, Quill Editor, Realtime, Supabase, PostgreSQL.
+Key Features:
+- Public, Private and shared workspace
+- ⏱️ View Realtime changes
+- 📝 Collborate with other users by tracking realtime cursor
+- 📧 Email 2FA invitation
+- 📒 Custom Quill rich text editor
+- 😜 Set custom Emojis for each workspaces
+- 🔧 Drizzle ORM
+- 🐼 GitHub sign up
+- Next.js 13 app router
+- Websockets
+- Tailwind design for responsive (Mobile View) UI
+- Tailwind animations and transition effects
+- File and image upload using Supabase storage
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
