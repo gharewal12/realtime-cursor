@@ -14,6 +14,7 @@ Key Features:
 - Tailwind animations and transition effects
 - File and image upload using Supabase storage
 
+Live Demo: https://realtime-cursor-gilt.vercel.app/
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
